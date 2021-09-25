@@ -1,3 +1,29 @@
+.search-container {
+    width: 100%;
+    display: flex;
+    padding: 16px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-text {
+    text-align: center;
+    margin: 0 10px !important;
+    color: white !important;
+    font-weight: bold !important;
+    background-color: transparent !important;
+    border: 0 !important;
+}
+
+.btn-text:hover {
+    color: rgb(216, 216, 216) !important;
+}
+
+.form-inline {
+    padding: 0 100px;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 /*  */
 
@@ -8,35 +34,14 @@
     outline: 0;
 }
 
-.custom-navbar {
-    background-color: rgba(255, 0, 0, 0.227);
-    font-family: 'Comfortaa', cursive;
-    padding: 0 auto;
-    height: 55px;
-    width: 100%;
-}
-
-.form-inline {
-    padding: 0 100px;
-}
-
 .search-bar {
     font-size: 15px !important;
     width: 500px !important;
     border-radius: 5px 0 0 5px !important;
 }
 
-.navbar-link-text {
-    color: white !important;
-    font-weight: bold;
-}
-
-.navbar-link-text:hover {
-    color: rgb(216, 216, 216) !important;
-}
-
 .btn-submit {
-    background-color: rgb(216, 216, 216)  !important;
+    background-color: rgb(216, 216, 216) !important;
     border: 0 !important;
     border-radius: 0 5px 5px 0 !important;
 }
@@ -50,7 +55,7 @@
     width: 30px;
     height: 30px;
     text-align: center;
-    font-weight: bold;
+    font-weight: bold !important;
     color: black !important;
     background-color: white!important;
     border: 0 !important;
