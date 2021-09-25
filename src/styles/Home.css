@@ -9,9 +9,17 @@
 }
 
 .home-section {
+    width: 100%;
+    background-color: #222831;
     padding: 0;
     margin: 0;
-    background-color: rgba(255, 0, 0, 0.227);
     font-family: 'Comfortaa', cursive;
 }
 
+.highlight-title h1 {
+    width: fit-content;
+    top: 130px;
+    left: 200px;
+    color: white;
+    font-weight: bold;
+}

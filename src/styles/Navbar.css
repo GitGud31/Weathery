@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+/*  */
+
+/* disable bootstrap button click effect */
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus:not(:disabled):not(.disabled), .btn:focus, .btn:active, .btn:hover {
+    box-shadow: none!important;
+    outline: 0;
+}
+
 .search-container {
     width: 100%;
     display: flex;
@@ -20,24 +30,10 @@
     color: rgb(216, 216, 216) !important;
 }
 
-.form-inline {
-    padding: 0 100px;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-/*  */
-
-/* disable bootstrap button click effect */
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus:not(:disabled):not(.disabled), .btn:focus, .btn:active, .btn:hover {
-    box-shadow: none!important;
-    outline: 0;
-}
-
 .search-bar {
     font-size: 15px !important;
-    width: 500px !important;
     border-radius: 5px 0 0 5px !important;
+    width: 50% !important;
 }
 
 .btn-submit {
@@ -46,8 +42,9 @@
     border-radius: 0 5px 5px 0 !important;
 }
 
-.btn-grp-temp {
+.btn-grp {
     margin: auto 0;
+    padding: 0 20px;
     justify-content: center;
 }
 
@@ -63,4 +60,51 @@
 
 .btn-temp:hover {
     background-color: rgb(216, 216, 216) !important;
+}
+
+/* Tablet view */
+
+@media (max-width: 768px) {
+    .search-container {
+        top: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .search-bar {
+        width: 60% !important;
+        align-self: center;
+        justify-content: center;
+    }
+}
+
+/* Mobile view */
+
+@media (max-width: 578px) {
+    .search-container {
+        top: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .search-bar {
+        order: 1;
+        width: 100% !important;
+        align-self: center;
+        justify-content: center;
+    }
+    .btn-grp {
+        order: 2;
+    }
+    .btn-grp:nth-child(1) {
+        align-self: center;
+    }
+    .btn-grp:nth-child(3) {
+        padding-left: 20px;
+        align-self: center;
+    }
 }

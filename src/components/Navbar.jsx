@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonGroup, Button, FormControl, Form } from "react-bootstrap";
+import { ButtonGroup, Button, FormControl, InputGroup } from "react-bootstrap";
 import searchIcon from "../assets/search-icon.svg";
 
 import "../styles/Navbar.css";
@@ -9,22 +9,24 @@ function Navbar() {
     return (
         <div className="search-container">
 
-            <Button className="btn-text" >Today</Button>
-            <Button className="btn-text" >Week</Button>
+            <ButtonGroup className="btn-grp">
+                <Button className="btn-text" >Today</Button>
+                <Button className="btn-text" >Week</Button>
+            </ButtonGroup>
 
-            <Form inline>
+            <InputGroup className="search-bar">
                 <FormControl
-                    className="search-bar"
-                    collapseOnSelect
                     type="text"
-                    placeholder="Search for a place..." />
+                    placeholder="Search for a place..."
+                />
+                <InputGroup.Append>
+                    <Button className="btn-submit" type="submit">
+                        <img src={searchIcon} alt="" />
+                    </Button>
+                </InputGroup.Append>
+            </InputGroup>
 
-                <Button className="btn-submit" type="submit">
-                    <img src={searchIcon} alt="" />
-                </Button>
-            </Form>
-
-            <ButtonGroup className="btn-grp-temp">
+            <ButtonGroup className="btn-grp">
                 <Button className="btn-temp" size="sm" >C°</Button>
                 <Button className="btn-temp" size="sm" >F°</Button>
             </ButtonGroup>
