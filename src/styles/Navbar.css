@@ -1,7 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+/*  */
+
+/* disable bootstrap button click effect */
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus:not(:disabled):not(.disabled), .btn:focus, .btn:active, .btn:hover {
+    box-shadow: none!important;
+    outline: 0;
+}
+
+.custom-navbar {
+    background-color: rgba(255, 0, 0, 0.227);
+    font-family: 'Comfortaa', cursive;
+    padding: 0 auto;
+    height: 55px;
+    width: 100%;
+}
+
 .form-inline {
     padding: 0 100px;
 }
 
-.search-bar{
+.search-bar {
+    font-size: 15px !important;
     width: 500px !important;
+    border-radius: 5px 0 0 5px !important;
+}
+
+.navbar-link-text {
+    color: white !important;
+    font-weight: bold;
+}
+
+.navbar-link-text:hover {
+    color: rgb(216, 216, 216) !important;
+}
+
+.btn-submit {
+    background-color: rgb(216, 216, 216)  !important;
+    border: 0 !important;
+    border-radius: 0 5px 5px 0 !important;
+}
+
+.btn-grp-temp {
+    margin: auto 0;
+    justify-content: center;
+}
+
+.btn-temp {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: black !important;
+    background-color: white!important;
+    border: 0 !important;
+}
+
+.btn-temp:hover {
+    background-color: rgb(216, 216, 216) !important;
 }
