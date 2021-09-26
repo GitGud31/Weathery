@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+/*  */
+
+.bubble-date {
+    position: relative;
+    top: 5%;
+    left: 40%;
+    text-align: center;
+    padding: 70px 0;
+    background-color: pink;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+
+.bubble-date p {
+    font-weight: bold;
+    font-size: 45px;
+}
+
+.bubble-date span {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+/* Tablet view */
+
+@media (max-width: 768px) {}
+
+/* Mobile view */
+
+@media (max-width: 578px) {}

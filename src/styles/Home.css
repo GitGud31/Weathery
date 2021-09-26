@@ -16,10 +16,66 @@
     font-family: 'Comfortaa', cursive;
 }
 
-.highlight-title h1 {
+.highlight-title {
     width: fit-content;
-    top: 130px;
-    left: 200px;
+    background-color: red;
+    margin: 40px 150px 0 150px;
+}
+
+.highlight-title h1 {
     color: white;
     font-weight: bold;
 }
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-bubble {
+    background-color: blue;
+    width: 100%;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: green;
+    width: 100%;
+}
+
+.card-body {
+    margin: 25px;
+    width: 150px;
+    height: 180px;
+    background-color: white;
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    text-align: center;
+}
+
+.bubble-temp {
+    position: relative;
+    left: 30%;
+    bottom: 20%;
+    text-align: center;
+    padding: 45px 0;
+    background-color: orange;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.bubble-temp p {
+    font-weight: bold;
+    font-size: 45px;
+}
+
+/* Tablet view */
+
+@media (max-width: 768px) {}
+
+/* Mobile view */
+
+@media (max-width: 578px) {}
