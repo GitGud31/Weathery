@@ -79,8 +79,6 @@ class LocalDate extends Component {
         const day = dayFormatter(_date.getDay());
         const time = timeFormatter(_date.toTimeString());
 
-        console.log();
-
         return (
             <div className="bubble-date">
                 <p>{day}</p>

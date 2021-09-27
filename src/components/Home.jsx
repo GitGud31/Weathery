@@ -1,8 +1,9 @@
 import React from "react";
 import Navbar from "./Navbar.jsx";
+import LocalDate from "./Date.jsx";
+import CardInfo from "./CardInfo.jsx";
 
 import "../styles/Home.css";
-import LocalDate from "./Date.jsx";
 
 function Home() {
     return (<section className="home-section">
@@ -13,40 +14,46 @@ function Home() {
             </div>
 
             <div className="content">
-                <div className="card-bubble">
+                <div className="wrapper-bubbles">
                     <LocalDate />
+
                     <div className="bubble-temp">
-                        <p>-99C</p>
+                        <p>-99 <span>c°</span></p>
                     </div>
                 </div>
 
-                <div className="card-info">
-                    <div className="card-body">
-                        UX index
+                <div className="wrapper-cards-info">
+
+                    <div className="ghost-container">
+                        <CardInfo
+                            title="Ux Index"
+                            content="Some quick example text to" />
+
+                        <CardInfo
+                            title="Wind Status"
+                            content="Some quick example text to" />
+
+                        <CardInfo
+                            title="Humidity"
+                            content="Some quick example text to" />
+
+                        <CardInfo
+                            title="Air Quality"
+                            content="Some quick example text to" />
+
+                        <CardInfo
+                            title="visibility"
+                            content="Some quick example text to" />
+
+                        <CardInfo
+                            title="Sunrise and sunset"
+                            content="Some quick example text to" />
                     </div>
 
-                    <div className="card-body">
-                        Wind Status
-                    </div>
-
-                    <div className="card-body">
-                        Sunrise and Sunset
-                    </div>
-
-                    <div className="card-body">
-                        Humidity
-                    </div>
-                    <div className="card-body">
-                        Visibility
-                    </div>
-
-                    <div className="card-body">
-                        Air Quality
-                    </div>
                 </div>
             </div>
         </div>
-    </section>);
+    </section >);
 }
 
 export default Home;

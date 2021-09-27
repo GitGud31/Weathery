@@ -1,32 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-/*  */
-
 .bubble-date {
+    font-family: 'Encode Sans', sans-serif;
+    margin: 0;
+    padding: 100px 0;
     position: relative;
-    top: 5%;
-    left: 40%;
-    text-align: center;
-    padding: 70px 0;
-    background-color: pink;
+    top: 25px;
+    right: -150px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
-    width: 300px;
-    height: 300px;
+    text-align: center;
+    background-color: #11151c;
+    box-shadow: 0 4px 8px 0 #11151c, 0 6px 20px 0 #11151c;
 }
 
 .bubble-date p {
+    color: white;
     font-weight: bold;
-    font-size: 45px;
+    font-size: 50px;
 }
 
 .bubble-date span {
+    color: white;
     font-weight: bold;
     font-size: 30px;
 }
 
 /* Tablet view */
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    .bubble-date {
+        right: -220px;
+        margin: 40px 0 0 0;
+        padding: 100px 0;
+    }
+    .bubble-date p {
+        font-weight: bold;
+        font-size: 50px;
+    }
+}
 
 /* Mobile view */
 
-@media (max-width: 578px) {}
+@media (max-width: 578px) {
+    .bubble-date {
+        margin: 20px 0 0 0;
+        padding: 50px 0;
+        top: 0;
+        right: -60px; 
+        width: 250px;
+        height: 250px;
+    }
+    .bubble-date p {
+        font-weight: bold;
+        font-size: 40px;
+    }
+}

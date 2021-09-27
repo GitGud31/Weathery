@@ -1,0 +1,31 @@
+.card-info {
+    margin: 10px;
+    float: left;
+    width: 27%;
+    height: 180px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
+
+.card-title{
+    font-weight: bold !important;
+}
+
+/* Tablet view */
+
+@media (max-width: 768px) {
+    .card-info {
+        width: 45%;
+        float: left;
+    }
+}
+
+/* Mobile view */
+
+@media (max-width: 578px) {
+    .card-info {
+        float: left;
+        margin: 0 0 30px 0;
+        width: 85%;
+    }
+}

@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-/*  */
-
 /* disable bootstrap button click effect */
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus:not(:disabled):not(.disabled), .btn:focus, .btn:active, .btn:hover {
@@ -66,12 +63,8 @@
 
 @media (max-width: 768px) {
     .search-container {
-        top: 0;
         width: 100%;
-        display: flex;
         flex-direction: row;
-        align-items: center;
-        justify-content: center;
     }
     .search-bar {
         width: 60% !important;
@@ -88,14 +81,10 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
     }
     .search-bar {
         order: 1;
         width: 100% !important;
-        align-self: center;
-        justify-content: center;
     }
     .btn-grp {
         order: 2;
