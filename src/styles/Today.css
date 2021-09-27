@@ -1,0 +1,123 @@
+.highlight-title {
+    margin: 40px 150px 0;
+    width: fit-content;
+    /* background-color: red; */
+    font-family: 'Encode Sans', sans-serif;
+}
+
+.highlight-title h1 {
+    color: white;
+    font-weight: bold;
+}
+
+.today-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    padding: 40px 0 0 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.wrapper-bubbles {
+    /* background-color: blue; */
+    width: 50%;
+}
+
+.wrapper-cards-info {
+    position: relative;
+    /* background-color: green; */
+    content: "";
+    display: table;
+    clear: both;
+    width: 50%;
+}
+
+.ghost-container {
+    margin: 0 0 0 35px;
+}
+
+.bubble-temp {
+    font-family: 'Encode Sans', sans-serif;
+    position: relative;
+    left: 120px;
+    bottom: 130px;
+    text-align: center;
+    background-color: orange;
+    box-shadow: 0 4px 8px 0 orange, 0 3px 3px 0 orange;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.bubble-temp p {
+    font-weight: bold;
+    font-size: 45px;
+    padding: 40px 0;
+}
+
+/* Tablet view */
+
+@media (max-width: 768px) {
+    .highlight-title {
+        margin: 30px 0 0 30px;
+    }
+    .highlight-title h1 {
+        font-size: 40px;
+    }
+    .today-container {
+        flex-direction: column;
+    }
+    .content {
+        flex-direction: column;
+    }
+    .wrapper-bubbles {
+        width: 100%;
+    }
+    .wrapper-cards-info {
+        width: 100%;
+    }
+    .bubble-temp {
+        left: 210px;
+        top: -100px;
+    }
+    .bubble-temp p {
+        font-size: 40px;
+    }
+}
+
+/* Mobile view */
+
+@media (max-width: 578px) {
+    .highlight-title {
+        margin: 20px 0 0 0;
+    }
+    .highlight-title h1 {
+        font-size: 30px;
+    }
+    .today-container {
+        flex-direction: column;
+    }
+    .content {
+        flex-direction: column;
+    }
+    .wrapper-bubbles {
+        width: 100%;
+    }
+    .wrapper-cards-info {
+        width: 100%;
+    }
+    .bubble-temp {
+        left: 50px;
+        width: 120px;
+        height: 120px;
+        padding: 0;
+    }
+    .bubble-temp p {
+        padding: 35px 0;
+        font-size: 35px;
+    }
+}
