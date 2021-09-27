@@ -1,0 +1,73 @@
+.week-content {
+    margin: 50px 0 0;
+    padding: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: red;
+    text-align: center;
+}
+
+.big-card {
+    border-radius: 5% !important;
+    width: 200px;
+    height: 300px;
+}
+
+.week-card-title {
+    margin: 20px auto !important;
+    font-weight: bold !important;
+}
+
+/* Tablet view */
+
+@media (max-width: 768px) {
+    .week-content {
+        margin: 30px auto;
+        padding: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        background-color: red;
+        text-align: center;
+        width: 100%;
+    }
+    .big-card {
+        width: 300px;
+        height: 400px;
+        margin: 5px;
+    }
+    .week-card-title {
+        margin: 20px auto !important;
+        font-weight: bold !important;
+    }
+}
+
+/* Mobile view */
+
+@media (max-width: 578px) {
+    .week-content {
+        margin: 30px auto;
+        padding: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        background-color: red;
+        text-align: center;
+        width: 100%;
+    }
+    .big-card {
+        width: 150px;
+        height: 200px;
+        margin: 5px;
+    }
+    .week-card-title {
+        margin: 20px auto !important;
+        font-weight: bold !important;
+    }
+}

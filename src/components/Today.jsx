@@ -1,20 +1,20 @@
 import React from "react";
 import LocalDate from "./Date.jsx";
 import CardInfo from "./CardInfo.jsx";
+import Title from "./Title.jsx";
 
 import "../styles/Today.css";
 
 function Today() {
 
     return (<div className="today-container">
-        <div className="highlight-title">
-            <h1>Today's Highlights</h1>
-        </div>
 
-        <div className="content">
+        <Title>Today's Highlights </Title>
+
+        <div className="today-content">
+
             <div className="wrapper-bubbles">
                 <LocalDate />
-
                 <div className="bubble-temp">
                     <p>-99 <span>c°</span></p>
                 </div>

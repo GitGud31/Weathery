@@ -1,21 +1,9 @@
-.highlight-title {
-    margin: 40px 150px 0;
-    width: fit-content;
-    /* background-color: red; */
-    font-family: 'Encode Sans', sans-serif;
-}
-
-.highlight-title h1 {
-    color: white;
-    font-weight: bold;
-}
-
 .today-container {
     display: flex;
     flex-direction: column;
 }
 
-.content {
+.today-content {
     padding: 40px 0 0 0;
     display: flex;
     flex-direction: row;
@@ -71,7 +59,7 @@
     .today-container {
         flex-direction: column;
     }
-    .content {
+    .today-content {
         flex-direction: column;
     }
     .wrapper-bubbles {
@@ -101,7 +89,7 @@
     .today-container {
         flex-direction: column;
     }
-    .content {
+    .today-content {
         flex-direction: column;
     }
     .wrapper-bubbles {

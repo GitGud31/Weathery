@@ -1,0 +1,33 @@
+.highlight-title {
+    margin: 40px 150px 0;
+    width: fit-content;
+    /* background-color: red; */
+    font-family: 'Encode Sans', sans-serif;
+}
+
+.highlight-title h1 {
+    color: white;
+    font-weight: bold;
+}
+
+/* Tablet view */
+
+@media (max-width: 768px) {
+    .highlight-title {
+        margin: 30px 0 0 30px;
+    }
+    .highlight-title h1 {
+        font-size: 40px;
+    }
+}
+
+/* Mobile view */
+
+@media (max-width: 578px) {
+    .highlight-title {
+        margin: 20px 0 0 0;
+    }
+    .highlight-title h1 {
+        font-size: 30px;
+    }
+}
