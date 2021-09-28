@@ -12,11 +12,17 @@
     border-radius: 5% !important;
     width: 200px;
     height: 300px;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 
 .week-card-title {
     margin: 20px auto !important;
     font-weight: bold !important;
+}
+
+.week-card-body p{
+    padding: 5px 0 !important;
+    font-size: 20px;
 }
 
 /* Tablet view */
@@ -32,6 +38,10 @@
         height: 400px;
         margin: 5px;
     }
+    
+    .week-card-body p{
+        font-size: 30px;
+    }
 }
 
 /* Mobile view */
@@ -46,5 +56,9 @@
         width: 150px;
         height: 200px;
         margin: 5px;
+    }
+    .week-card-body p{
+        padding: 0 !important;
+        font-size: 15px;
     }
 }

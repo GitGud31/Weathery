@@ -14,7 +14,13 @@
 
 .card-info-body{
     padding: 10px 0;
-    font-size: 40px;
+    font-size: 35px;
+}
+
+.card-info-children{
+    padding: 10px 0;
+    font-weight: 100 !important;
+    font-size: 20px !important;
 }
 
 .card-info-body span{

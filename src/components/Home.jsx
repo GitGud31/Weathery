@@ -11,7 +11,7 @@ function Home({ data }) {
     return (<section className="home-section" >
         <Navbar />
         <Today data={data} />
-        <Week data={data.daily}/>
+        <Week daily={data.daily} />
     </section >);
 }
 

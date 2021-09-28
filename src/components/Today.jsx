@@ -5,14 +5,7 @@ import Title from "./Title.jsx";
 
 import "../styles/Today.css";
 
-
-function formatter(time) {
-    const formatted = time.split(' ')[0];
-    const hours = formatted.split(':')[0];
-    const minutes = formatted.split(':')[1];
-
-    return hours + ":" + minutes;
-}
+import { timeFormatter } from "../utils/timeformatter.js"
 
 function Today({ data }) {
 
@@ -27,8 +20,8 @@ function Today({ data }) {
     const windDeg = current["wind_deg"];
     const windStatus = current["wind_speed"];
 
-    const sunriseTime = formatter(new Date(sunrise * 1000).toTimeString());
-    const sunsetTime = formatter(new Date(sunset * 1000).toTimeString());
+    const sunriseTime = timeFormatter(new Date(sunrise * 1000).toTimeString());
+    const sunsetTime = timeFormatter(new Date(sunset * 1000).toTimeString());
 
     return (<div className="today-container">
 
@@ -57,7 +50,7 @@ function Today({ data }) {
                         unit="%" />
 
                     <CardInfo
-                        title="visibility"
+                        title="Visibility"
                         content={visibility / 1000}
                         unit="km" />
 
@@ -72,13 +65,12 @@ function Today({ data }) {
                         unit="°" />
 
                     <CardInfo
-                        title="Sunrise &amp; sunset"
+                        title="Sunrise &amp; Sunset"
                         content=""
                         unit="">
-                        <>
-                            <h5>Sunrise: {sunriseTime}</h5>
-                            <h5>Sunset: {sunsetTime}</h5>
-                        </>
+                        Sunrise: {sunriseTime}
+                        <br />
+                        Sunset: {sunsetTime}
                     </CardInfo>
                 </div>
 
