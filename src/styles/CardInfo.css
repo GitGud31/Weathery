@@ -8,7 +8,18 @@
 }
 
 .card-info-title{
+    font-size: 27px;
     font-weight: bold !important;
+}
+
+.card-info-body{
+    padding: 10px 0;
+    font-size: 40px;
+}
+
+.card-info-body span{
+    font-weight: 400;
+    font-size: 25px;
 }
 
 /* Tablet view */

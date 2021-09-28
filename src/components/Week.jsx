@@ -1,9 +1,9 @@
 import React from "react";
+import { Card } from "react-bootstrap";
 import Title from "./Title.jsx";
 
 import "../styles/Title.css";
 import "../styles/Week.css";
-import { Card } from "react-bootstrap";
 
 
 function Week() {

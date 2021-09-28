@@ -11,13 +11,11 @@
 }
 
 .wrapper-bubbles {
-    /* background-color: blue; */
     width: 50%;
 }
 
 .wrapper-cards-info {
     position: relative;
-    /* background-color: green; */
     content: "";
     display: table;
     clear: both;
@@ -43,8 +41,8 @@
 
 .bubble-temp p {
     font-weight: bold;
-    font-size: 45px;
-    padding: 40px 0;
+    font-size: 35px;
+    padding: 40px 10px;
 }
 
 /* Tablet view */
@@ -106,6 +104,6 @@
     }
     .bubble-temp p {
         padding: 35px 0;
-        font-size: 35px;
+        font-size: 30px;
     }
 }

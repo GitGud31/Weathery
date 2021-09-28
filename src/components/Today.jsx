@@ -5,7 +5,30 @@ import Title from "./Title.jsx";
 
 import "../styles/Today.css";
 
-function Today() {
+
+function formatter(time) {
+    const formatted = time.split(' ')[0];
+    const hours = formatted.split(':')[0];
+    const minutes = formatted.split(':')[1];
+
+    return hours + ":" + minutes;
+}
+
+function Today({ data }) {
+
+    const current = data.current;
+
+    const temperature = current["temp"];
+    const sunset = current["sunset"];
+    const sunrise = current["sunrise"];
+    const humidity = current["humidity"];
+    const visibility = current["visibility"];
+    const pressure = current["pressure"];
+    const windDeg = current["wind_deg"];
+    const windStatus = current["wind_speed"];
+
+    const sunriseTime = formatter(new Date(sunrise * 1000).toTimeString());
+    const sunsetTime = formatter(new Date(sunset * 1000).toTimeString());
 
     return (<div className="today-container">
 
@@ -16,7 +39,7 @@ function Today() {
             <div className="wrapper-bubbles">
                 <LocalDate />
                 <div className="bubble-temp">
-                    <p>-99 <span>c°</span></p>
+                    <p>{temperature} c°</p>
                 </div>
             </div>
 
@@ -24,28 +47,39 @@ function Today() {
 
                 <div className="ghost-container">
                     <CardInfo
-                        title="Ux Index"
-                        content="Some quick example text to" />
-
-                    <CardInfo
-                        title="Wind Status"
-                        content="Some quick example text to" />
+                        title="Pressure"
+                        content={pressure}
+                        unit="mBar" />
 
                     <CardInfo
                         title="Humidity"
-                        content="Some quick example text to" />
-
-                    <CardInfo
-                        title="Air Quality"
-                        content="Some quick example text to" />
+                        content={humidity}
+                        unit="%" />
 
                     <CardInfo
                         title="visibility"
-                        content="Some quick example text to" />
+                        content={visibility / 1000}
+                        unit="km" />
 
                     <CardInfo
-                        title="Sunrise and sunset"
-                        content="Some quick example text to" />
+                        title="Wind Status"
+                        content={windStatus}
+                        unit="kt" />
+
+                    <CardInfo
+                        title="Wind Deg"
+                        content={windDeg}
+                        unit="°" />
+
+                    <CardInfo
+                        title="Sunrise &amp; sunset"
+                        content=""
+                        unit="">
+                        <>
+                            <h5>Sunrise: {sunriseTime}</h5>
+                            <h5>Sunset: {sunsetTime}</h5>
+                        </>
+                    </CardInfo>
                 </div>
 
             </div>
