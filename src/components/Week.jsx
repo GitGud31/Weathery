@@ -10,34 +10,33 @@ import "../styles/Title.css";
 import "../styles/Week.css";
 
 
-function Week({ daily }) {
+function Week({ data }) {
 
     const fahrenheitTemps = [];
     const celsiusTemps = [];
 
-    daily.map((d, index) => {
-        //get only 6 days (exclude today and nextWeek's)
-        if (index !== 0 && index < 7) {
-            const day = d["dt"];
+    data.map((d, index) => {
 
-            /* Kelvin to Celsius */
-            celsiusTemps.push({
-                date: dayFormatter(new Date(day * 1000).getDay()),
+        const day = d["dt"];
 
-                temp: Math.trunc(d["temp"]["day"] - 273.15),
-                minTemp: Math.trunc(d["temp"]["min"] - 273.15),
-                maxTemp: Math.trunc(d["temp"]["max"] - 273.15),
-            });
+        /* Kelvin to Celsius */
+        celsiusTemps.push({
+            date: dayFormatter(new Date(day * 1000).getDay()),
 
-            /* Kelvin to Fahrenheit */
-            fahrenheitTemps.push({
-                date: dayFormatter(new Date(day * 1000).getDay()),
+            temp: Math.trunc(d["temp"]["day"] - 273.15),
+            minTemp: Math.trunc(d["temp"]["min"] - 273.15),
+            maxTemp: Math.trunc(d["temp"]["max"] - 273.15),
+        });
 
-                temp: Math.trunc((d["temp"]["day"] - 273.15) * (9 / 5) + 32),
-                minTemp: Math.trunc((d["temp"]["min"] - 273.15) * (9 / 5) + 32),
-                maxTemp: Math.trunc((d["temp"]["max"] - 273.15) * (9 / 5) + 32),
-            });
-        }
+        /* Kelvin to Fahrenheit */
+        fahrenheitTemps.push({
+            date: dayFormatter(new Date(day * 1000).getDay()),
+
+            temp: Math.trunc((d["temp"]["day"] - 273.15) * (9 / 5) + 32),
+            minTemp: Math.trunc((d["temp"]["min"] - 273.15) * (9 / 5) + 32),
+            maxTemp: Math.trunc((d["temp"]["max"] - 273.15) * (9 / 5) + 32),
+        });
+
     });
 
     const [weekTemps, setWeekTemps] = useState(celsiusTemps);

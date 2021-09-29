@@ -8,36 +8,33 @@ import "../styles/Today.css";
 
 import { timeFormatter } from "../utils/timeformatter.js";
 
-
-/* (Celsius × 9/5) + 32 = Fahrenheit */
-
 function Today({ data }) {
 
-    const current = data.current;
-
-    const sunset = current["sunset"];
-    const sunrise = current["sunrise"];
-    const humidity = current["humidity"];
-    const visibility = current["visibility"];
-    const pressure = current["pressure"];
-    const windDeg = current["wind_deg"];
-    const windStatus = current["wind_speed"];
+    const sunset = data["sys"]["sunset"];
+    const sunrise = data["sys"]["sunrise"];
     const sunriseTime = timeFormatter(new Date(sunrise * 1000).toTimeString());
     const sunsetTime = timeFormatter(new Date(sunset * 1000).toTimeString());
 
-    const kelvinTemp = Math.trunc(current["temp"]);
+    const humidity = data["main"]["humidity"];
+    const visibility = data["visibility"];
+    const pressure = data["main"]["pressure"];
+
+    const windDeg = data["wind"]["deg"];
+    const windStatus = data["wind"]["speed"];
+
+    const kelvinTemp = Math.trunc(data["main"]["temp"]);
     const [temperature, setTemperature] = useState(Math.trunc(kelvinTemp - 273.15));
-    
+
     /* Kelvin to Celsius */
     const toCelsius = () => {
         setTemperature(Math.trunc(kelvinTemp - 273.15));
     }
-    
+
     /* Kelvin to Fahrenheit */
     const toFahrenheit = () => {
         setTemperature(Math.trunc((kelvinTemp - 273.15) * (9 / 5) + 32));
     }
-    
+
     return (<div className="today-container">
 
         <div className="highlight-today-content">
