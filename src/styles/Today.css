@@ -49,7 +49,7 @@
 .bubble-temp p {
     font-weight: bold;
     font-size: 35px;
-    padding: 40px 10px;
+    padding: 50px 0;
 }
 
 /* Tablet view */
@@ -79,6 +79,7 @@
     }
     .bubble-temp p {
         font-size: 40px;
+        padding: 45px 0;
     }
 }
 
@@ -116,7 +117,7 @@
         padding: 0;
     }
     .bubble-temp p {
-        padding: 35px 0;
+        padding: 40px 0;
         font-size: 30px;
     }
 }
