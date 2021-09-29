@@ -8,8 +8,15 @@
     text-align: center;
 }
 
+.highlight-week-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 60px;
+}
+
 .big-card {
-    border-radius: 5% !important;
+    border-radius: 5px !important;
     width: 200px;
     height: 300px;
     box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
@@ -20,7 +27,7 @@
     font-weight: bold !important;
 }
 
-.week-card-body p{
+.week-card-body p {
     padding: 5px 0 !important;
     font-size: 20px;
 }
@@ -38,8 +45,7 @@
         height: 400px;
         margin: 5px;
     }
-    
-    .week-card-body p{
+    .week-card-body p {
         font-size: 30px;
     }
 }
@@ -52,12 +58,18 @@
         justify-content: center;
         width: 100%;
     }
+    .highlight-week-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-right: 0;
+    }
     .big-card {
         width: 150px;
         height: 200px;
         margin: 5px;
     }
-    .week-card-body p{
+    .week-card-body p {
         padding: 0 !important;
         font-size: 15px;
     }

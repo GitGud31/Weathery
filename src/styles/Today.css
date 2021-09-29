@@ -3,6 +3,13 @@
     flex-direction: column;
 }
 
+.highlight-today-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 60px;
+}
+
 .today-content {
     padding: 40px 0 0 0;
     display: flex;
@@ -83,6 +90,12 @@
     }
     .highlight-title h1 {
         font-size: 30px;
+    }
+    .highlight-today-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-right: 0;
     }
     .today-container {
         flex-direction: column;

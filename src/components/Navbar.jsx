@@ -26,10 +26,7 @@ function Navbar() {
                 </InputGroup.Append>
             </InputGroup>
 
-            <ButtonGroup className="btn-grp">
-                <Button className="btn-temp" size="sm" >C°</Button>
-                <Button className="btn-temp" size="sm" >F°</Button>
-            </ButtonGroup>
+
 
         </div>
     );

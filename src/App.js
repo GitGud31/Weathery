@@ -23,6 +23,7 @@ function App() {
           },
           function (error) {
             console.log("ERROR", error);
+            alert("Please activate location in your browser and refresh the page.");
           }
         );
 
