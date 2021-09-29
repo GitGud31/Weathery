@@ -3,6 +3,9 @@ import Navbar from "./Navbar.jsx";
 import Today from "./Today.jsx";
 import Week from "./Week.jsx";
 
+import NotFoundCity from './NotFound';
+
+
 import "../styles/Home.css";
 import "../styles/Title.css";
 
@@ -14,6 +17,8 @@ function Home({ data }) {
     const [longitude, setLogitude] = useState();
     const [todayData, setTodayData] = useState();
     const [weekData, setWeekData] = useState();
+    const [error, setError] = useState("");
+
 
     useEffect(() => {
 
@@ -53,16 +58,23 @@ function Home({ data }) {
                 .then(response => response.json())
                 .then(body => {
 
-                    setTodayData(body);
-                    console.log("today, with coord: ", body)
+                    console.log(body)
 
-                    const lat = body["coord"].lat;
-                    const lon = body["coord"].lon;
+                    if (body.cod !== "404") {
+                        setError("");
 
-                    fetchWeek(lat, lon);
+                        setTodayData(body);
+
+                        const lat = body["coord"].lat;
+                        const lon = body["coord"].lon;
+
+                        fetchWeek(lat, lon);
+                    } else {
+                        throw Error(body.message);
+                    }
                 })
                 .catch((e) => {
-                    console.log(e);
+                    setError(cityname);
                 });
 
             /* if no cityname provided seach by cityname */
@@ -71,20 +83,25 @@ function Home({ data }) {
                 "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&lat=" + latitude + "&lon=" + longitude + "&appid=" + API_KEY)
                 .then(response => response.json())
                 .then(body => {
+                    console.log(body)
 
-                    setTodayData(body);
-                    console.log("today, with cityname: ", body)
+                    if (body.cod !== "404") {
+                        setError("");
 
-                    const lat = body["coord"].lat;
-                    const lon = body["coord"].lon;
+                        setTodayData(body);
 
-                    fetchWeek(lat, lon);
+                        const lat = body["coord"].lat;
+                        const lon = body["coord"].lon;
+
+                        fetchWeek(lat, lon);
+                    } else {
+                        throw Error(body.message);
+                    }
                 })
                 .catch((e) => {
-                    console.log(e);
+                    setError(cityname);
                 });
         }
-
     }
 
     async function fetchWeek(_latitude, _longitude) {
@@ -120,8 +137,22 @@ function Home({ data }) {
 
     return (<section className="home-section" >
         <Navbar onSubmitHandle={submitHandler} />
-        {(todayData !== undefined && weekData !== undefined) ? <Today data={todayData} /> : null}
-        {(todayData !== undefined && weekData !== undefined) ? <Week data={weekData} /> : null}
+
+
+
+        {
+            (error === "")
+                ? <>
+                    {(todayData !== undefined && weekData !== undefined) ? <Today data={todayData} /> : null}
+                    {(todayData !== undefined && weekData !== undefined) ? <Week data={weekData} /> : null}
+                </>
+                : <>
+                    <NotFoundCity name={error} />
+                </>
+        }
+
+
+
     </section >);
 }
 

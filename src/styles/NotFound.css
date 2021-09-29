@@ -1,0 +1,22 @@
+.msg h2 {
+    margin: 200px 0 100px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Encode Sans', sans-serif;
+    color: rgb(182, 144, 21);
+}
+
+.msg h3 {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Encode Sans', sans-serif;
+    color: white;
+}
+
+/* Tablet view */
+
+@media (max-width: 768px) {}
+
+/* Mobile view */
+
+@media (max-width: 578px) {}

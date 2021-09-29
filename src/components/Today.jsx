@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
 import LocalDate from "./Date.jsx";
 import CardInfo from "./CardInfo.jsx";
@@ -9,6 +9,8 @@ import "../styles/Today.css";
 import { timeFormatter } from "../utils/timeformatter.js";
 
 function Today({ data }) {
+
+    const [unit, setUnit] = useState("C°");
 
     const sunset = data["sys"]["sunset"];
     const sunrise = data["sys"]["sunrise"];
@@ -23,15 +25,26 @@ function Today({ data }) {
     const windStatus = data["wind"]["speed"];
 
     const kelvinTemp = Math.trunc(data["main"]["temp"]);
-    const [temperature, setTemperature] = useState(Math.trunc(kelvinTemp - 273.15));
+    const [temperature, setTemperature] = useState();
+
+    /* force temperature update after searching for new city */
+    useEffect(() => {
+        if (unit === "C°") {
+            setTemperature(Math.trunc(kelvinTemp - 273.15));
+        } else {
+            setTemperature(Math.trunc((kelvinTemp - 273.15) * (9 / 5) + 32));
+        }
+    }, [temperature, kelvinTemp, unit]);
 
     /* Kelvin to Celsius */
     const toCelsius = () => {
+        setUnit("C°");
         setTemperature(Math.trunc(kelvinTemp - 273.15));
     }
 
     /* Kelvin to Fahrenheit */
     const toFahrenheit = () => {
+        setUnit("F°");
         setTemperature(Math.trunc((kelvinTemp - 273.15) * (9 / 5) + 32));
     }
 
