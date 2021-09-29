@@ -11,12 +11,13 @@ import { API_KEY } from "../keys.js";
 function Home({ data }) {
 
     const [latitude, setLatitude] = useState();
-    const [logitude, setLogitude] = useState();
+    const [longitude, setLogitude] = useState();
     const [todayData, setTodayData] = useState();
     const [weekData, setWeekData] = useState();
 
     useEffect(() => {
 
+        /* Get user coordinates via naviator */
         const fetchData = async () => {
             if ("geolocation" in navigator) {
                 navigator.geolocation.getCurrentPosition(
@@ -30,7 +31,7 @@ function Home({ data }) {
                     }
                 );
 
-                if (latitude !== undefined && logitude !== undefined) {
+                if (latitude !== undefined && longitude !== undefined) {
                     await fetchToday();
                 }
 
@@ -40,31 +41,56 @@ function Home({ data }) {
         }
         fetchData();
 
-    });
+    }, [longitude, latitude]);
 
 
-    async function fetchToday() {
-        await fetch(
-            "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + logitude + "&appid=" + API_KEY)
-            .then(response => response.json())
-            .then(body => {
+    async function fetchToday(cityname) {
 
-                setTodayData(body);
+        /* if no cityname provided seach by coordinates. Mainly for first time */
+        if (cityname === undefined) {
+            await fetch(
+                "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + API_KEY)
+                .then(response => response.json())
+                .then(body => {
 
-                const lat = body["coord"].lat;
-                const lon = body["coord"].lon;
+                    setTodayData(body);
+                    console.log("today, with coord: ", body)
 
-                fetchWeek(lat, lon);
-            })
-            .catch((e) => {
-                console.log(e);
-            });
+                    const lat = body["coord"].lat;
+                    const lon = body["coord"].lon;
+
+                    fetchWeek(lat, lon);
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+
+            /* if no cityname provided seach by cityname */
+        } else {
+            await fetch(
+                "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&lat=" + latitude + "&lon=" + longitude + "&appid=" + API_KEY)
+                .then(response => response.json())
+                .then(body => {
+
+                    setTodayData(body);
+                    console.log("today, with cityname: ", body)
+
+                    const lat = body["coord"].lat;
+                    const lon = body["coord"].lon;
+
+                    fetchWeek(lat, lon);
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+        }
+
     }
 
-    async function fetchWeek(latitude, longitude) {
+    async function fetchWeek(_latitude, _longitude) {
 
         await fetch(
-            "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + logitude + "&exclude=hourly,minutely&appid=" + API_KEY)
+            "https://api.openweathermap.org/data/2.5/onecall?lat=" + _latitude + "&lon=" + _longitude + "&exclude=hourly,minutely&appid=" + API_KEY)
             .then(response => response.json())
             .then(body => {
                 sortWeekData(body);
@@ -88,9 +114,12 @@ function Home({ data }) {
         setWeekData(weekData);
     }
 
+    const submitHandler = (value) => {
+        fetchToday(value);
+    }
 
     return (<section className="home-section" >
-        <Navbar />
+        <Navbar onSubmitHandle={submitHandler} />
         {(todayData !== undefined && weekData !== undefined) ? <Today data={todayData} /> : null}
         {(todayData !== undefined && weekData !== undefined) ? <Week data={weekData} /> : null}
     </section >);
