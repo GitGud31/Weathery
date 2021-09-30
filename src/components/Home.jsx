@@ -58,8 +58,6 @@ function Home({ data }) {
                 .then(response => response.json())
                 .then(body => {
 
-                    console.log(body)
-
                     if (body.cod !== "404") {
                         setError("");
 

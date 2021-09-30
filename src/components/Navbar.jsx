@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-scroll";
 import { ButtonGroup, Button, FormControl, InputGroup } from "react-bootstrap";
 import searchIcon from "../assets/search-icon.svg";
 
@@ -25,8 +26,20 @@ function Navbar(props) {
         <div className="search-container">
 
             <ButtonGroup className="btn-grp">
-                <Button className="btn-text" >Today</Button>
-                <Button className="btn-text" >Week</Button>
+                <Link
+                    duration={800}
+                    smooth={true}
+                    /* offset={-50} */
+                    to="home-section">
+                    <Button className="btn-text" >Today</Button>
+                </Link>
+
+                <Link
+                    duration={800}
+                    smooth={true}
+                    to="week-section">
+                    <Button className="btn-text" >Week</Button>
+                </Link>
             </ButtonGroup>
 
             <InputGroup className="search-bar">
