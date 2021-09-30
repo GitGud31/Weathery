@@ -9,7 +9,7 @@ import NotFoundCity from './NotFound';
 import "../styles/Home.css";
 import "../styles/Title.css";
 
-import { API_KEY } from "../keys.js";
+/* import { API_KEY } from "../keys.js"; */
 
 function Home({ data }) {
 
@@ -54,7 +54,7 @@ function Home({ data }) {
         /* if no cityname provided seach by coordinates. Mainly for first time */
         if (cityname === undefined) {
             await fetch(
-                "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + API_KEY)
+                "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + process.env.API_KEY)
                 .then(response => response.json())
                 .then(body => {
 
@@ -78,7 +78,7 @@ function Home({ data }) {
             /* if no cityname provided seach by cityname */
         } else {
             await fetch(
-                "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&lat=" + latitude + "&lon=" + longitude + "&appid=" + API_KEY)
+                "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&lat=" + latitude + "&lon=" + longitude + "&appid=" + process.env.API_KEY)
                 .then(response => response.json())
                 .then(body => {
                     console.log(body)
@@ -105,7 +105,7 @@ function Home({ data }) {
     async function fetchWeek(_latitude, _longitude) {
 
         await fetch(
-            "https://api.openweathermap.org/data/2.5/onecall?lat=" + _latitude + "&lon=" + _longitude + "&exclude=hourly,minutely&appid=" + API_KEY)
+            "https://api.openweathermap.org/data/2.5/onecall?lat=" + _latitude + "&lon=" + _longitude + "&exclude=hourly,minutely&appid=" + process.env.API_KEY)
             .then(response => response.json())
             .then(body => {
                 sortWeekData(body);
