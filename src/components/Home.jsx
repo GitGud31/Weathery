@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar.jsx";
 import Today from "./Today.jsx";
-import Week from "./Week.jsx";
-
+import Week from "./Week.jsx"; 
 import NotFoundCity from './NotFound';
-
 
 import "../styles/Home.css";
 import "../styles/Title.css";
 
-/* import { API_KEY } from "../keys.js"; */
 
-function Home({ data }) {
+function Home() {
+    const API_KEY = process.env.REACT_APP_API_KEY;
 
     const [latitude, setLatitude] = useState();
     const [longitude, setLogitude] = useState();
@@ -46,6 +44,7 @@ function Home({ data }) {
         }
         fetchData();
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [longitude, latitude]);
 
 
@@ -54,14 +53,14 @@ function Home({ data }) {
         /* if no cityname provided seach by coordinates. Mainly for first time */
         if (cityname === undefined) {
             await fetch(
-                "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + process.env.API_KEY)
+                "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + API_KEY)
                 .then(response => response.json())
                 .then(body => {
 
                     if (body.cod !== "404") {
                         setError("");
 
-                        setTodayData(body);
+                        setTodayData(body); 
 
                         const lat = body["coord"].lat;
                         const lon = body["coord"].lon;
@@ -78,7 +77,7 @@ function Home({ data }) {
             /* if no cityname provided seach by cityname */
         } else {
             await fetch(
-                "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&lat=" + latitude + "&lon=" + longitude + "&appid=" + process.env.API_KEY)
+                "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&lat=" + latitude + "&lon=" + longitude + "&appid=" + API_KEY)
                 .then(response => response.json())
                 .then(body => {
                     console.log(body)
@@ -105,7 +104,7 @@ function Home({ data }) {
     async function fetchWeek(_latitude, _longitude) {
 
         await fetch(
-            "https://api.openweathermap.org/data/2.5/onecall?lat=" + _latitude + "&lon=" + _longitude + "&exclude=hourly,minutely&appid=" + process.env.API_KEY)
+            "https://api.openweathermap.org/data/2.5/onecall?lat=" + _latitude + "&lon=" + _longitude + "&exclude=hourly,minutely&appid=" + API_KEY)
             .then(response => response.json())
             .then(body => {
                 sortWeekData(body);

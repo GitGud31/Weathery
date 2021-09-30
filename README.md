@@ -1,6 +1,6 @@
 # Weathery built with React
 
-A simple [Weather app]() 
+A simple [Weather app](https://weathery-app.netlify.app/) 
 
 Give a ⭐ if you like this website!
 
